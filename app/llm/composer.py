@@ -34,6 +34,7 @@ Rules:
 2. Do NOT use promotional 'hype' words if category voice forbids it.
 3. Match the language preference (usually Hindi-English mix).
 4. Provide ONE clear call to action.
+5. KEEP IT EXTREMELY BRIEF. Under 3 sentences. Be punchy and concise for WhatsApp.
 
 RESPOND ONLY WITH VALID JSON using this exact schema:
 {{
@@ -89,7 +90,9 @@ def compose_conversational_reply(merchant: Dict[str, Any], category: Dict[str, A
         "Your goal is to:\n"
         "1. Briefly and politely address their response. If you don't know the exact answer, be transparent.\n"
         "2. Do NOT invent fake pricing, fake features, or fake facts. No fake claims.\n"
-        "3. Gently steer the conversation back to your original Call to Action (e.g. asking them to reply YES to proceed).\n\n"
+        "3. Gently steer the conversation back to your original Call to Action (e.g. asking them to reply YES to proceed).\n"
+        "4. KEEP IT EXTREMELY BRIEF. This is a WhatsApp chat. Your reply must be under 3 sentences.\n"
+        "5. NEVER ask for more than one piece of information at a time. Do NOT provide lists of options.\n\n"
         "Respond in JSON format with strictly two keys: 'body' (the message to send) and 'rationale' (brief explanation of your handling)."
     )
     
