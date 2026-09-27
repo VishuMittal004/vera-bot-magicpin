@@ -105,7 +105,7 @@ async def reply(body: ReplyBody):
         
     # 2. Intent classification
     intent = classify_intent(body.message)
-    already_committed = any("Perfect! I've queued this up" in turn["msg"] for turn in history if turn.get("from") == "vera")
+    already_committed = any("Done! I've queued this up" in turn["msg"] for turn in history if turn.get("from") == "vera")
     
     if intent == "COMMITTED" and already_committed:
         intent = "UNKNOWN" # Let the LLM handle polite sign-offs instead of re-triggering action
@@ -119,7 +119,7 @@ async def reply(body: ReplyBody):
     if intent == "COMMITTED":
         return {
             "action": "send",
-            "body": "Perfect! I've queued this up. Our team will reach out shortly to get you set up.",
+            "body": "Done! I've queued this up. Our team will reach out shortly to get you set up.",
             "cta": "none",
             "rationale": "Merchant committed. Moving straight to action without further qualifying."
         }
