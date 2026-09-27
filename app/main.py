@@ -20,11 +20,11 @@ async def healthz():
 @app.get("/v1/metadata")
 async def metadata():
     return {
-        "team_name": "Antigravity",
-        "team_members": ["Agent"],
-        "model": "gemini-3.1-pro",
+        "team_name": "Vipanshu Mittal",
+        "team_members": ["Vipanshu"],
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
         "approach": "Deterministic router + LLM composer",
-        "contact_email": "agent@example.com",
+        "contact_email": "vipanshumittal@gmail.com",
         "version": "0.1.0",
         "submitted_at": datetime.now(timezone.utc).isoformat()
     }
