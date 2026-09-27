@@ -9,6 +9,10 @@ START = time.time()
 
 conversations: dict[str, list] = {}
 
+@app.get("/")
+async def root():
+    return {"status": "Vera AI Engine is live", "documentation": "Go to /v1/metadata"}
+
 @app.get("/v1/healthz")
 async def healthz():
     return {
