@@ -4,11 +4,11 @@ from typing import List, Dict, Any
 # Global tracker for message hashes
 message_hashes: Dict[str, int] = {}
 
-def detect_auto_reply(message: str) -> bool:
-    """Returns True if this exact message has been seen 3 or more times globally."""
-    msg_hash = hashlib.md5(message.encode('utf-8')).hexdigest()
-    message_hashes[msg_hash] = message_hashes.get(msg_hash, 0) + 1
-    return message_hashes[msg_hash] >= 3
+def detect_auto_reply(conv_id: str, message: str) -> bool:
+    """Returns True if this exact message has been seen 3 or more times in this conversation."""
+    key = f"{conv_id}_{hashlib.md5(message.encode('utf-8')).hexdigest()}"
+    message_hashes[key] = message_hashes.get(key, 0) + 1
+    return message_hashes[key] >= 3
 
 def classify_intent(message: str) -> str:
     import re
