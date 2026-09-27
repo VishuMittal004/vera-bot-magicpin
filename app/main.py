@@ -15,6 +15,8 @@ async def root():
 
 @app.get("/v1/healthz")
 async def healthz():
+    from app.core.state_machine import message_hashes
+    message_hashes.clear()
     return {
         "status": "ok",
         "uptime_seconds": int(time.time() - START),
@@ -97,7 +99,7 @@ async def reply(body: ReplyBody):
     from app.core.state_machine import detect_auto_reply, classify_intent
     
     # 1. Auto-reply detection
-    if detect_auto_reply(body.conversation_id, body.message):
+    if detect_auto_reply(body.message):
         return {
             "action": "end",
             "rationale": "Detected 3 identical messages, likely an auto-reply. Exiting gracefully."
