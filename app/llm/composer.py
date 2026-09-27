@@ -32,9 +32,8 @@ Key Signal: {json.dumps(signal)}
 Rules:
 1. Be specific, use verifiable numbers from the signal.
 2. Do NOT use promotional 'hype' words if category voice forbids it.
-3. Match the language preference (usually Hindi-English mix).
-4. Provide ONE clear call to action.
-5. KEEP IT EXTREMELY BRIEF. Under 3 sentences. Be punchy and concise for WhatsApp.
+3. Provide ONE clear call to action.
+4. KEEP IT EXTREMELY BRIEF. Under 3 sentences. Be punchy and concise for WhatsApp.
 
 RESPOND ONLY WITH VALID JSON using this exact schema:
 {{
