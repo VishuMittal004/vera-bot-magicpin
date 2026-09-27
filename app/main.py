@@ -97,7 +97,7 @@ async def reply(body: ReplyBody):
     from app.core.state_machine import detect_auto_reply, classify_intent
     
     # 1. Auto-reply detection
-    if detect_auto_reply(body.conv_id, body.message):
+    if detect_auto_reply(body.conversation_id, body.message):
         return {
             "action": "end",
             "rationale": "Detected 3 identical messages, likely an auto-reply. Exiting gracefully."
