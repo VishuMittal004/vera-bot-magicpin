@@ -19,7 +19,10 @@ def classify_intent(message: str) -> str:
     if any(re.search(w, msg) for w in stop_words):
         return "STOP"
         
-    commit_words = [r"\byes\b", r"\bok\b", r"let's do it", r"go ahead", r"\bsure\b", r"\bdone\b", r"what's next"]
+    commit_words = [
+        r"\byes\b", r"\bok\b", r"let's do it", r"go ahead", r"\bsure\b", r"\bdone\b", r"what's next",
+        r"\bha\b", r"\bhaan\b", r"\bhan\b", r"krte h", r"\bchalo\b", r"thik", r"theek", r"karo", r"kar lo"
+    ]
     if any(re.search(w, msg) for w in commit_words):
         return "COMMITTED"
         
